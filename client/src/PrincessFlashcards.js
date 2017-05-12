@@ -4,7 +4,7 @@ import PrincessCard from './PrincessCard';
 const PrincessFlashcards = ({ princesses }) => {
   return(
     <div className="row">
-      { princesses.map( p => (<PrincessCard key={p._id} princess={p} side='back' />) )}
+      { princesses.map( p => (<PrincessCard key={p._id} princess={p} />) )}
     </div>
   )
 }

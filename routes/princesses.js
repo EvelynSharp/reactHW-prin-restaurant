@@ -8,9 +8,22 @@ router.get('/', (req, res) => {
   });
 });
 
-// router.get('/newprincess', function(req, res) {
-//   res.render('newprincess.ejs');
-// });
+router.delete('/:_id', (req, res) => {
+  Princess.findById(req.params._id, (err, princess) => {
+    princess.remove();
+    res.status(200).send({success: true});
+  })
+
+});
+
+router.put('/:_id', (req, res) => {
+  Princess.findById(req.params._id, (err, princess) => {
+    princess.princessReview = req.body.princessReview;
+    res.json(princess)
+    princess.save();
+  });
+});
+
 
 router.post('/', (req, res) => {
   const{
@@ -38,7 +51,6 @@ router.post('/', (req, res) => {
     princessReview,
     imageURL
   }).save( (err, princess) =>{
-    console.log(princess);
     res.json(princess);
   });
 

@@ -25,6 +25,26 @@ class App extends Component {
     this.setState({princesses: [ ...princesses, princess]});
   }
 
+  removePrincess = (princess) => {
+    let {princesses} = this.state;
+    this.setState({
+      princesses: princesses.filter( p => p._id !== princess._id)
+    });
+  }
+
+  updatePrincessReview = (updatedPrincess) => {
+    let {princesses} = this.state;
+    let newPrinList = princesses.map( p => {
+      if (p._id === updatedPrincess._id) {
+        return updatedPrincess;
+      } else {
+        return p;
+      }
+    }) ;
+    this.setState({princesses: newPrinList});
+    //setTimeout(() => console.log(this.state),1000);
+  }
+
   render() {
     return (
       <div className="App">
@@ -33,7 +53,7 @@ class App extends Component {
             <PrincessForm addPrincess={this.addPrincess} pageSwitch={this.pageSwitch}/>
           :
             <div>
-              <PrincessFlashcards princesses={this.state.princesses}/>
+              <PrincessFlashcards updatePrincessReview={this.updatePrincessReview} removePrincess={this.removePrincess} princesses={this.state.princesses}/>
               <button onClick={() => {this.pageSwitch(this.state.newPrincess)}} type="button" style={{marginBottom: '20px'}}>
                 New Princess
               </button>

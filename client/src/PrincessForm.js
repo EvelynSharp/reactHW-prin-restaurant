@@ -41,17 +41,6 @@ class PrincessForm extends React.Component  {
       method: 'POST',
       body: JSON.stringify({
           ...this.state
-          // princessName,
-          // favRest: {
-          //   restName,
-          //   priceRange,
-          //   cuisine,
-          //   description,
-          //   rating
-          // },
-          // princessReview,
-          // imageURL
-
         })
       }).then( res => res.json())
         .then( princess => addPrincess(princess))

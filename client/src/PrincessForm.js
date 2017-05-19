@@ -32,7 +32,6 @@ class PrincessForm extends React.Component  {
     let {princessName, favRest,princessReview,imageURL} = this.state;
     let {restName,priceRange,cuisine,description,rating } = favRest;
     let addPrincess = this.props.addPrincess;
-    console.log(addPrincess, this.state, this.props);
     fetch('/api/princesses', {
       headers: {
       'Accept': 'application/json',

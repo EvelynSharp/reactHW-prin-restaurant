@@ -33,7 +33,7 @@ class PrincessCard extends React.Component {
   changeReview = (e) => {
     let { target: {value, id}} = e;
     this.setState( {princess:{...this.state.princess, [id]:value}});
-    console.log(this.state);
+  
   }
 
   submitUpdate = (e) => {
